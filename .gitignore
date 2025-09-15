@@ -90,3 +90,5 @@ Thumbs.db
 
 # Raw templates
 base_templates/
+
+*.txt
