@@ -1,0 +1,17 @@
+services:
+  web:
+    build: .
+    container_name: server
+    volumes:
+      - .:/app
+    ports:
+      - "8000:8000"
+
+  client:
+    build: client/
+    container_name: client
+    command: python main.py -c 5
+    volumes:
+      - ./client:/app
+    depends_on:
+      - web
