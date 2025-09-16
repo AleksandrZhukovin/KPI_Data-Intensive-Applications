@@ -6,12 +6,27 @@ services:
       - .:/app
     ports:
       - "8000:8000"
+    env_file:
+      - .env
+    depends_on:
+      - db
 
   client:
     build: client/
     container_name: client
-    command: python main.py -c 5
+    command: python main.py -c 2
     volumes:
       - ./client:/app
     depends_on:
       - web
+
+  db:
+    image: postgres:16
+    container_name: db
+    volumes:
+      - db_data:/var/lib/postgresql/data
+    env_file:
+      - .env
+
+volumes:
+  db_data:

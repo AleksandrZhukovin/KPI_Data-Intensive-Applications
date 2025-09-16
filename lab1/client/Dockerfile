@@ -19,5 +19,3 @@ RUN poetry config virtualenvs.create false \
  && poetry install --no-root --no-interaction --no-ansi
 
 COPY . .
-
-CMD ["python", "main.py"]

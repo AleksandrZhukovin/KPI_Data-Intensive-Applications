@@ -1,8 +1,8 @@
+from django.db.models import F
 from django.shortcuts import render
 from django.http import HttpResponse
 
-
-counter_val = 0
+from .models import Counter
 
 
 def index(request):
@@ -10,11 +10,10 @@ def index(request):
 
 
 def counter(request):
-    global counter_val
-    return render(request, "counter/counter.html", {"counter": counter_val})
+    counter = Counter.objects.get(id=1)
+    return render(request, "counter/counter.html", {"counter": counter})
 
 
 def increase(request):
-    global counter_val
-    counter_val += 1
+    Counter.objects.filter(id=1).update(counter=F("counter") + 1)
     return HttpResponse(status=204)
