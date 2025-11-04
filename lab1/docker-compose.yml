@@ -14,7 +14,7 @@ services:
   client:
     build: client/
     container_name: client
-    command: python main.py -c 2
+    command: python main.py -c 10
     volumes:
       - ./client:/app
     depends_on:
