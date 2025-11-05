@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<hazelcast xmlns="http://www.hazelcast.com/schema/config"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://www.hazelcast.com/schema/config
+           http://www.hazelcast.com/schema/config/hazelcast-config-5.4.xsd">
+  <cluster-name>cluster1</cluster-name>
+  <network>
+    <port auto-increment="true">5701</port>
+  </network>
+  <map name="*">
+    <backup-count>1</backup-count>
+    <async-backup-count>0</async-backup-count>
+  </map>
+  <cp-subsystem>
+    <cp-member-count>3</cp-member-count>
+    <session-time-to-live-seconds>120</session-time-to-live-seconds>
+    <missing-cp-member-auto-removal-seconds>300</missing-cp-member-auto-removal-seconds>
+  </cp-subsystem>
+</hazelcast>

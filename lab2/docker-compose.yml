@@ -1,0 +1,33 @@
+services:
+  hazelcast1:
+    image: hazelcast/hazelcast:5.4.0
+    ports:
+      - "5701:5701"
+    volumes:
+      - ./hazelcast.xml:/opt/hazelcast/config/hazelcast-docker.xml:ro
+    environment:
+      - HZ_CLUSTER_NAME=cluster1
+    networks:
+      - hz-net
+
+  hazelcast2:
+    image: hazelcast/hazelcast:5.4.0
+    volumes:
+      - ./hazelcast.xml:/opt/hazelcast/config/hazelcast-docker.xml:ro
+    environment:
+      - HZ_CLUSTER_NAME=cluster1
+    networks:
+      - hz-net
+
+  hazelcast3:
+    image: hazelcast/hazelcast:5.4.0
+    volumes:
+      - ./hazelcast.xml:/opt/hazelcast/config/hazelcast-docker.xml:ro
+    environment:
+      - HZ_CLUSTER_NAME=cluster1
+    networks:
+      - hz-net
+
+networks:
+  hz-net:
+    driver: bridge
