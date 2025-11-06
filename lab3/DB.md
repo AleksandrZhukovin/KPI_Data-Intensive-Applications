@@ -1,0 +1,1 @@
+`docker run --name DIA_lab3_pg -e POSTGRES_PASSWORD=12345 -p 5432:5432 -d postgres`
